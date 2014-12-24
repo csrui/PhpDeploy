@@ -85,10 +85,10 @@ class Deploy extends Base {
 
 			$this->log('Before deployment: ' . $this->getRef());
 
-			$output = shell_exec($this->buildCommand(sprintf('pull %s %s', $this->_remote, $this->_branch)));
+			$output = shell_exec($this->buildCommand(sprintf('fetch %s', $this->_remote)));
 			$this->log($output);
 
-			$output = shell_exec($this->buildCommand('checkout -f'));
+			$output = shell_exec($this->buildCommand(sprintf('checkout -f %s', $this->_branch)));
 			$this->log($output);
 
 			$this->log('After deployment: ' . $this->getRef());

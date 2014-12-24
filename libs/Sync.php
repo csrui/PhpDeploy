@@ -52,7 +52,7 @@ Class Sync extends Base {
 
 		# Run command
 
-		$execute_cmd = sprintf('rsync -a %s %s %s', $exclude_param, $this->_source, $this->_destination);
+		$execute_cmd = sprintf('rsync -avz %s %s %s', $exclude_param, $this->_source, $this->_destination);
 		$this->log('Attempting: ' . $execute_cmd);
 
 		exec($execute_cmd, $output);
